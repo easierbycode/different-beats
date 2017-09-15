@@ -10,7 +10,7 @@
 
         "useMic": false,
         "autoPlayAudio": true,
-        "audioURL": "res/mp3/title-song.mp3",
+        "audioURL": "res/mp3/title-song-vbr.mp3",
         "mute": false,
 
         "doLoop":false,
