@@ -103,7 +103,13 @@ var AudioHandler = function() {
 			for (U.getByteFrequencyData(y), U.getByteTimeDomainData(z), e = 0; b > e; e++) N[e] = (z[e] - 128) / 128 * I.gain;
 			for (e = 0; L > e; e++) {
 				for (t = 0, n = 0; S > n; n++) t += y[e * S + n];
+
 				k[e] = t / S / 256 * I.gain, k[e] *= 1 + e / (4 * L), k[e] = ATUtil.clamp(k[e], 0, 1), R[3 * e] = 255 * k[e]
+
+				// animate lips based on 10th frequency bar
+				if (e === 9 && window.lips) {
+					window.lips.anims.setProgress(k[e])
+				};
 			}
 			for (E.needsUpdate = !0, t = 0, n = 0; L > n; n++) t += k[n];
 			j = t / L, O += (j - O) / 5, _.unshift(j), _.pop(), X.unshift(O), X.pop(), j > Y && j > I.beatThreshold ? (m(), Y = 1.1 * j, ee = 0) : ee <= I.beatHoldTime ? ee++ : (Y *= I.beatDecayRate, Y = Math.max(Y, I.beatThreshold)), I.drawAudio && f()
@@ -171,6 +177,7 @@ var AudioHandler = function() {
 		Q = !1,
 		Y = 0,
 		ee = 0;
+	window.k = k;
 	return {
 		update: v,
 		init: e,

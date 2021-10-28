@@ -12,6 +12,7 @@ body {
 #viz {
 	position:absolute;
 	background-color: #000;
+	z-index: -1;
 }
 
 #controls{
