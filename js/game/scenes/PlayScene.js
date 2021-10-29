@@ -5,9 +5,14 @@ class PlayScene extends Phaser.Scene {
   }
 
   preload() {
+    
+    const BASE_URL = location.hostname === 'localhost'
+    ? '/'
+    : '/audio-party-vue/';
+    
     this.load.spritesheet(
         'lips',
-        '/js/game/assets/lips.png',
+        BASE_URL + 'js/game/assets/lips.png',
         {
             frameWidth: 500,
             frameHeight: 270
