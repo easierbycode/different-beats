@@ -8,7 +8,7 @@ class PlayScene extends Phaser.Scene {
     
     const BASE_URL = location.hostname === 'localhost'
     ? '/'
-    : '/audio-party-vue/';
+    : '/different-beats/';
     
     this.load.spritesheet(
         'lips',
